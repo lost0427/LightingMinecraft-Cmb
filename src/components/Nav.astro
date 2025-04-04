@@ -1,0 +1,29 @@
+---
+import ButtonProps from './Button.astro';
+import NavToggle from './NavToggle.astro';
+
+---
+<div class="w-full h-12 fixed top-0 left-0 backdrop-blur-xl bg-white/70 dark:bg-black/70 z-50 dark:text-white" id="NavDesktopH">
+    <div class="w-full h-full flex justify-between items-center">
+        <ButtonProps href="/" text="灵动MC" className="mx-5 text-[1rem] text-black dark:text-white" />
+        <div class="hidden md:flex flex-row" id="NavDesktop">
+            <ButtonProps href="/" text="主页" className="text-base px-3 text-[1rem] text-black dark:text-white" />
+            <ButtonProps href="/gallery" text="画廊" className="text-base px-3 text-[1rem] text-black dark:text-white" />
+            <ButtonProps href="/about" text="关于" className="text-base px-3 text-[1rem] text-black dark:text-white" />
+            <ButtonProps href="/guides/intro" text="帮助" className="text-base px-3 text-[1rem] text-black dark:text-white" />
+        </div>
+        <div class="flex justify-between">
+            <div class="mx-5 text-[1rem] text-transparent select-none">灵动MC</div>
+            <NavToggle class="" />
+        </div>
+    </div>
+</div>
+<div class="fixed top-[3.125rem] left-0 w-full h-[1px] bg-nav-line z-[103] dark:bg-white/10"></div>
+<div class="w-full h-full fixed top-12 left-0 backdrop-blur-xl bg-gradient-to-b from-white/100 to-white/50 dark:from-black/100 dark:to-black/50 z-50 hidden opacity-0 transition-opacity duration-500 ease-in-out" id="NavMobile">
+    <div class="w-full h-full flex flex-col p-7">
+        <ButtonProps href="/" text="主页" className="py-5 text-2xl text-black dark:text-white" />
+        <ButtonProps href="/gallery" text="画廊" className="py-5 text-2xl text-black dark:text-white" />
+        <ButtonProps href="/about" text="关于" className="py-5 text-2xl text-black dark:text-white " />
+        <ButtonProps href="/guides/intro" text="帮助" className="py-5 text-2xl text-black dark:text-white " />
+    </div>
+</div>

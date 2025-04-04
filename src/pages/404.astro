@@ -1,0 +1,57 @@
+---
+import Layout from './layout.astro';
+---
+<Layout>
+    <div class="h-screen w-full flex flex-col items-center justify-center text-center">
+        <h1 class="text-4xl font-bold">404 - 页面未找到</h1>
+        <div class="mt-8 text-black dark:text-white relative">
+            <span id="haiku" class="flex flex-col items-start block">加载俳句中...</span>
+            <span id="author" class="absolute bottom-[-10px] right-[-10px] text-xs text-gray-500"></span>
+        </div>
+    </div>
+
+    <script>
+        const currentPath = window.location.pathname;
+
+        if (currentPath.startsWith('/guides')) {
+            window.location.href = '/guides/404';
+        }
+
+        async function loadRandomHaiku() {
+            try {
+                let haikus, authorName;
+
+                const randomSource = Math.random() < 0.5 ? 'src/assets/haikus.json' : 'src/assets/haikus2.json';
+
+                const response = await fetch(randomSource);
+                haikus = await response.json();
+
+                authorName = randomSource === 'src/assets/haikus.json' ? 'by o3-mini-high' : 'by DeepSeek-V3-0324';
+
+                const randomHaiku = haikus[Math.floor(Math.random() * haikus.length)];
+
+                const haikuElement = document.getElementById('haiku');
+                haikuElement.innerHTML = randomHaiku.map(line => `<div>${line}</div>`).join('');
+
+                const authorElement = document.getElementById('author');
+                authorElement.innerText = authorName;
+            } catch (error) {
+                console.error('加载俳句失败:', error);
+                document.getElementById('haiku').innerText = '无法加载俳句，请稍后再试。';
+                document.getElementById('author').innerText = '';
+            }
+        }
+
+        loadRandomHaiku();
+    </script>
+
+    <style>
+        #author {
+            position: absolute;
+            bottom: -3rem;
+            right: -4rem;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+    </style>
+</Layout>

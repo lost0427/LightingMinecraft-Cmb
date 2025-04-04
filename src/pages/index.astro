@@ -1,0 +1,160 @@
+---
+import Layout from './layout.astro';
+import BGVideo from '../vue/components/BGVideo.vue';
+import ServerInfo from '../components/ServerInfo.astro';
+import InfoPage from '../vue/views/InfoPage.vue';
+import BlurText from "../react/BlurText.jsx";
+import AnimatedContent from "../react/AnimatedContent.jsx";
+
+---
+<Layout>
+    <!--<Menu>-->
+    <!--    <h1>111</h1>-->
+    <!--</Menu>-->
+    <div class="section0">
+        <BGVideo></BGVideo>
+        <div class="absolute">
+            <div class="text container">
+                <div class="server-intro">
+                    <BlurText
+                            client:load
+                            text=灵动Minecraft：
+                            delay={70}
+                            animateBy="words"
+                            direction="top"
+                            className="text-white text-[2.5rem] leading-[110%] tracking-[-0.01em] text-left font-medium md:text-[3.4rem] md:tracking-[-0.02em] lg:text-[4rem] lg:leading-[100%]"
+                    /><BlurText
+                            client:load
+                            text=一个
+                            delay={70}
+                            animateBy="words"
+                            direction="top"
+                            className="text-white text-[2.5rem] leading-[110%] tracking-[-0.01em] text-left font-medium md:text-[3.4rem] md:tracking-[-0.02em] lg:text-[4rem] lg:leading-[100%]"
+                    /><BlurText
+                            client:load
+                            text=有爱的
+                            delay={70}
+                            animateBy="words"
+                            direction="top"
+                            className="text-white text-[2.5rem] leading-[110%] tracking-[-0.01em] text-left font-medium md:text-[3.4rem] md:tracking-[-0.02em] lg:text-[4rem] lg:leading-[100%]"
+                    /><BlurText
+                            client:load
+                            text=公益
+                            delay={70}
+                            animateBy="words"
+                            direction="top"
+                            className="text-white text-[2.5rem] leading-[110%] tracking-[-0.01em] text-left font-medium md:text-[3.4rem] md:tracking-[-0.02em] lg:text-[4rem] lg:leading-[100%]"
+                    /><BlurText
+                            client:load
+                            text=MC服务器
+                            delay={70}
+                            animateBy="words"
+                            direction="top"
+                            className="text-white text-[2.5rem] leading-[110%] tracking-[-0.01em] text-left font-medium md:text-[3.4rem] md:tracking-[-0.02em] lg:text-[4rem] lg:leading-[100%]"
+                    /><BlurText
+                            client:load
+                            text=社区
+                            delay={70}
+                            animateBy="words"
+                            direction="top"
+                            className="text-white text-[2.5rem] leading-[110%] tracking-[-0.01em] text-left font-medium md:text-[3.4rem] md:tracking-[-0.02em] lg:text-[4rem] lg:leading-[100%]"
+                    />
+                </div>
+                <AnimatedContent
+                        client:load
+                        distance={70}
+                        direction="vertical"
+                        reverse={false}
+                        config={{ tension: 80, friction: 20 }}
+                        initialOpacity={0.2}
+                        animateOpacity
+                        scale={1.1}
+                        threshold={0.2}>
+                    <ServerInfo items={[
+                        {
+                            icon: 'server',
+                            label: '服务器地址',
+                            value: 'ldmc.neboer.site',
+                            svgPath: 'M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z'
+                        },
+                        {
+                            icon: 'version',
+                            label: '游戏版本',
+                            value: '1.20.6 JE/BE',
+                            svgPath: 'M192 64C86 64 0 150 0 256S86 448 192 448l256 0c106 0 192-86 192-192s-86-192-192-192L192 64zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24l0 32 32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0 0 32c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-32-32 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l32 0 0-32z'
+                        },
+                        {
+                            icon: 'qq',
+                            label: 'QQ交流群',
+                            value: '239434096',
+                            svgPath: 'M433.8 420.4c-11.53 1.393-44.86-52.74-44.86-52.74 0 31.34-16.14 72.25-51.05 101.8 16.84 5.192 54.84 19.17 45.8 34.42-7.316 12.34-125.5 7.881-159.6 4.037-34.12 3.844-152.3 8.306-159.6-4.037-9.045-15.25 28.92-29.21 45.78-34.42-34.92-29.54-51.06-70.44-51.06-101.8 0 0-33.33 54.13-44.86 52.74-5.37-.65-12.42-29.64 9.347-99.7 10.26-33.02 21.1-60.48 40.14-105.8C60.68 98.06 108.1 .006 224 0c113.7 .006 163.2 96.13 160.3 214.1 18.12 45.22 29.91 72.85 40.14 105.8 21.77 70.06 14.72 99.05 9.346 99.7z'
+                        }
+                    ]} />
+                </AnimatedContent>
+            </div>
+        </div>
+    </div>
+    <InfoPage></InfoPage>
+</Layout>
+
+
+
+
+<style>
+    p{
+        white-space:nowrap;
+    }
+    .section0 {
+        background-image: url('../assets/HomePage/Museum.png');
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .absolute {
+        position: absolute;
+        background: #0000008f;
+        z-index: 20;
+        height: 100vh;
+        max-height: 1000px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+
+    .text {
+        position: absolute;
+        bottom: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        color: white;
+    }
+
+    .container {
+        max-width: 1500px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .server-intro {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: flex-start;
+        gap: 0px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+
+</style>
+
+<style is:global>
+    body{
+        margin: 0;
+    }
+</style>
